@@ -1,0 +1,31 @@
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+    background-color: white;
+    margin: 0;
+    padding: 0;
+    font-family: helvetica, arial, sans-serif;
+    line-height: 1.5;
+    font-size: 16px;
+}
+
+.jumbotron {
+    position:relative;
+    min-height: 65vh;
+    display: flex;
+    flex-wrap: wrap;
+    background-image: url("https://i.insider.com/533f0c24ecad04d06d2dbf25?width=1000&format=jpeg&auto=webpmages/WB nightlife.jpeg");
+    background-size: cover;
+    background-position: 100%;
+
+}
+
+.jumbotron>h1 {
+    position: absolute;
+    top: 10%;
+    right: 5%;
+    margin: 0;
+}
