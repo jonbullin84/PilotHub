@@ -17,6 +17,7 @@ body {
     background-size: cover;
     background-position: 100%;
     margin-bottom: 5px;
+    border-bottom: solid black;
 
 }
 
@@ -28,4 +29,19 @@ body {
     font-size: 3.5rem;
     
 }
+ 
+footer {
+background-color: rgb(117, 165, 208);
+background-position: bottom;
+font-weight: strong;
+position: relative;
+display: flex-box;
+flex-wrap: wrap;
+float: inline-end;
+border: solid black;
+text-align: center;
+}
 
+.copyright {
+    text-align: center;
+}
