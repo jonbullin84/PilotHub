@@ -2,14 +2,10 @@
     box-sizing: border-box;
 }
 
-
 body {
-    background-color: white;
-    margin: 0;
-    padding: 0;
+    background-color: rgb(240, 239, 239);
     font-family: helvetica, arial, sans-serif;
-    line-height: 1.5;
-    font-size: 16px;
+    
 }
 
 .jumbotron {
@@ -20,12 +16,16 @@ body {
     background-image: url("https://i.insider.com/533f0c24ecad04d06d2dbf25?width=1000&format=jpeg&auto=webpmages/WB nightlife.jpeg");
     background-size: cover;
     background-position: 100%;
+    margin-bottom: 5px;
 
 }
 
 .jumbotron>h1 {
     position: absolute;
-    top: 10%;
-    right: 5%;
+    top: 8%;
+    right: 4%;
     margin: 0;
+    font-size: 3.5rem;
+    
 }
+
