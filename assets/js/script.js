@@ -6735,18 +6735,16 @@ document.addEventListener("DOMContentLoaded", function () {
   });
   var options = { data };
   var elems = document.querySelectorAll(".autocomplete");
-  var instances = M.Autocomplete.init(elems, options);
+  M.Autocomplete.init(elems, options);
 });
 
-const options = {
+var options = {
   method: "GET",
   headers: {
     "X-RapidAPI-Key": "791d63a68cmsh8f9fdaa84b09186p1aaac6jsn0df46ab9335c",
     "X-RapidAPI-Host": "airport-info.p.rapidapi.com",
   },
 };
-
-var airportCode = "rdu";
 
 function searchAirport() {
   var airportCode = document.querySelector("#airport_name").value;
