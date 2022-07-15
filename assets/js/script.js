@@ -6772,10 +6772,6 @@ function searchAirport() {
       airportName.textContent = response.name;
       airportInfo.prepend(airportName);
 
-      var phone = document.createElement("p");
-      phone.textContent = response.phone;
-      airportInfo.append(phone)
-      
       var address = document.createElement("p");
       address.textContent = response.street_number + " " + response.street;
       airportInfo.append(address)
@@ -6784,6 +6780,10 @@ function searchAirport() {
       address2.textContent = response.city + ", " + response.state + " " + response.postal_code;
       airportInfo.append(address2)
 
+      var phone = document.createElement("p");
+      phone.textContent = response.phone;
+      airportInfo.append(phone)
+      
       var website = document.createElement("p");
       var link = document.createElement("a");
       link.setAttribute("href", response.website);
