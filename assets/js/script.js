@@ -6759,7 +6759,8 @@ function searchAirport() {
       return response.json();
     })
     .then(function (response) {
-      console.log(response);
+      console.log(response,response.latitude,response.longitude);
+      searchBeer(response.latitude,response.longitude)
       if (response.cod !== 200) {
         document.getElementById("#airport-name");
         isError = true;
