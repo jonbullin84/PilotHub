@@ -6727,6 +6727,8 @@ var iatacodes = [
   "YNJ",
 ];
 
+var airportInfo = document.querySelector(".airport-info");
+
 document.addEventListener("DOMContentLoaded", function () {
   var data = {};
 
@@ -6735,7 +6737,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
   var options = { data };
   var elems = document.querySelectorAll(".autocomplete");
-  var instances = M.Autocomplete.init(elems, options);
+  M.Autocomplete.init(elems, options);
 });
 
 const options = {
@@ -6746,32 +6748,51 @@ const options = {
   },
 };
 
-var airportCode = "rdu";
-
 function searchAirport() {
-  var airportCode = document.querySelector("#airport_name").value;
+  var airportCode = document.querySelector("#airport_name");
 
   var getAirportInfo =
-    "https://airport-info.p.rapidapi.com/airport?iata=" + airportCode;
+    "https://airport-info.p.rapidapi.com/airport?iata=" + airportCode.value;
 
   fetch(getAirportInfo, options)
     .then(function (response) {
       return response.json();
     })
     .then(function (response) {
-      console.log(response,response.latitude,response.longitude);
-      searchBeer(response.latitude,response.longitude)
-      if (response.cod !== 200) {
-        document.getElementById("#airport-name");
-        isError = true;
-        return;
-      }
-      if (!isError) {
-        saveLocal(options);
-      }
+      console.log(response, response.latitude, response.longitude);
+      searchBeer(response.latitude, response.longitude);
+
+      airportInfo.innerHTML = "";
+      var airportName = document.createElement("h2");
+      airportName.textContent = response.name;
+      airportInfo.prepend(airportName);
+
+      var phone = document.createElement("p");
+      phone.textContent = response.phone;
+      airportInfo.append(phone)
+      
+      var address = document.createElement("p");
+      address.textContent = response.street_number + " " + response.street;
+      airportInfo.append(address)
+      
+      var address2 = document.createElement("p");
+      address2.textContent = response.city + ", " + response.state + " " + response.postal_code;
+      airportInfo.append(address2)
+
+      var website = document.createElement("p");
+      var link = document.createElement("a");
+      link.setAttribute("href", response.website);
+      link.setAttribute("target", "_blank");
+      link.textContent = response.website;
+      website.append(link);
+      airportInfo.append(website);
+
+      airportCode.value = "";
+    })
+    .catch(function (error) {
+      console.log("error", error);
     });
   console.log(options);
 }
 
-document.addEventListener("click", searchAirport)
-
+document.querySelector(".btn-search").addEventListener("click", searchAirport);
