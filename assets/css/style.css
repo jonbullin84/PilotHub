@@ -17,7 +17,7 @@ body {
     background-size: cover;
     background-position: 100%;
     margin-bottom: 5px;
-    border-bottom: solid black;
+    border-bottom: solid black 2px;
 
 }
 
@@ -31,17 +31,31 @@ body {
 }
  
 footer {
-background-color: rgb(117, 165, 208);
 background-position: bottom;
-font-weight: strong;
 position: relative;
-display: flex-box;
+padding-top: 10px;
 flex-wrap: wrap;
-float: inline-end;
-border: solid black;
+/* float: inline-end; */
 text-align: center;
+font-size: 1.5rem;
+height: 75px;
 }
 
 .copyright {
     text-align: center;
+    font-size: 0.75rem;
 }
+
+.cards {
+    border: solid rgb(115, 114, 114) 1px;
+    border-radius: 5px;
+    height: auto;
+    padding: 10px;
+    box-shadow: 0 0 10px 1px;
+}
+
+h2 {
+    font-size: 16px;
+    margin: 0;
+}
+
