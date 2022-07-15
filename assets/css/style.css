@@ -17,7 +17,7 @@ body {
     background-size: cover;
     background-position: 100%;
     margin-bottom: 5px;
-    border-bottom: solid black 2px;
+    border-bottom: solid black 1px;
 
 }
 
@@ -48,10 +48,12 @@ height: 75px;
 
 .cards {
     border: solid rgb(115, 114, 114) 1px;
-    border-radius: 5px;
+    border-radius: 2px;
+    margin: 12px;
     height: auto;
     padding: 10px;
-    box-shadow: 0 0 10px 1px;
+    box-shadow: 0 0 12px 1px #64B5F6;
+    
 }
 
 h2 {

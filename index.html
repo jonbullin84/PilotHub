@@ -1,55 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PilotHub</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="assets/css/style.css"/>
-</head>
-<link rel="icon" href="maverick.png">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <link rel="icon" href="maverick.png" />
 
-<body>
+  <body>
     <header class="jumbotron">
-        <h1>PilotHub</h1>
+      <h1>PilotHub</h1>
     </header>
-        
-    
-    
-    <div class="row">
 
-        <div class="input-field col s3">
-            <input placeholder="Flying to next?" id="airport_name" type="text" class="validate autocomplete">
-            <label for="airport_name">Airport Identifier</label>
-            <button type="submit" class="btn #64b5f6 blue lighten-2 btn-search" id="runSearch">Search</button>
-         
+    <div class="row">
+      <div class="input-field col s3">
+        <input
+          placeholder="Flying to next?"
+          id="airport_name"
+          type="text"
+          class="validate autocomplete"
+        />
+        <label for="airport_name">Airport Identifier</label>
+        <button
+          type="submit"
+          class="btn #64b5f6 blue lighten-2 btn-search"
+          id="runSearch"
+        >
+          Search
+        </button>
+      </div>
+      <!-- need a hide function for card containers -->
+      <div class="col s4">
+        <label for="airport-info">Airport Information</label>
+        <div class="row">
+          <div class="cards airport-info"></div>
         </div>
-  <!-- need a hide function for card containers -->
-        <div class="col s4">Airport Information
-        
-            <div class="row">
-                <div class="cards airport-info"></div>
-             </div>
-        </div>
-        
-        <div class="col s4">Nearest Beer Information
-            <!-- id = brewery_name -->
-            <div class="cards">
-                
-            </div>
-        </div>
-        
       </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>      
+      <div class="col s4">
+        <label for="beer-info">Nearest Brewery Information</label>
+        <div class="row">
+          <!-- id = brewery_name -->
+          <div class="cards"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="assets/js/script.js"></script>
     <script src="assets/js/beer.js"></script>
-        <footer class="blue lighten-2">    
-          <h6 class="blue lighten-2">Made with ❤️️ by Brian, Erik, Meghan, Nicholas, James & Jon</h6>
-          <p class="copyright blue lighten-2">
-              &copy; 2022 PilotHub, Inc.
-          </p>
-       </footer>
-</body>
+    <footer class="blue lighten-2">
+      <h6 class="blue lighten-2">
+        Made with ❤️️ by Brian, Erik, Meghan, Nicholas, James & Jon
+      </h6>
+      <p class="copyright blue lighten-2">&copy; 2022 PilotHub, Inc.</p>
+    </footer>
+  </body>
 </html>
