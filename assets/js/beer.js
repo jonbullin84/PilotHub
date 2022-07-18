@@ -1,5 +1,5 @@
 function searchBeer(lat,long) {
-    // var beerCode = document.querySelector("#brewery_name").value;
+   //  var beerCode = document.querySelector("#brewery_name").value;
   console.log(lat,long)
     var getBeerInfo =
       "https://api.openbrewerydb.org/breweries?by_dist="+lat+","+long+"&per_page=3";
@@ -23,3 +23,14 @@ function searchBeer(lat,long) {
   }
   
 //   document.addEventListener("click", searchBeer)
+document.querySelector(".btn-search").addEventListener("click", searchBeer)
+
+// module.exports = {
+ // doSomething: function() {
+    //code
+  //},
+
+ // anotherOne: function() {
+    //code
+ // }
+//  };
