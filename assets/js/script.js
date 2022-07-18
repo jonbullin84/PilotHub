@@ -6760,7 +6760,7 @@ function searchAirport() {
     })
     .then(function (response) {
       console.log(response, response.latitude, response.longitude);
-
+    
       cardbox = document.getElementById("remove-hide") 
       cardbox.classList.remove('hide');
 
