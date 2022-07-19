@@ -6801,3 +6801,6 @@ function searchAirport() {
 }
 
 document.querySelector(".btn-search").addEventListener("click", searchAirport);
+
+// const beer = require('./beer.js');
+// beer.doSomething();
