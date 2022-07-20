@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    font-size: 1.7vw;
 }
 
 body {
@@ -35,9 +36,8 @@ background-position: bottom;
 position: relative;
 padding-top: 10px;
 flex-wrap: wrap;
-/* float: inline-end; */
 text-align: center;
-font-size: 1.5rem;
+font-size: 1.5vw;
 height: 75px;
 }
 
@@ -46,20 +46,25 @@ height: 75px;
     font-size: 0.75rem;
 }
 
+.delete-hide {
+    display: flex;
+    flex-direction: column;
+}
+
 .cards {
     border: solid rgb(115, 114, 114) 1px;
     border-radius: 2px;
     margin: 12px;
     height: auto;
     padding: 10px;
-    box-shadow: 7px 5px 5px #64B5F6;
-    
+    box-shadow: 7px 5px 5px #64B5F6;   
 }
 
 h2 {
-    font-size: 16px;
+    font-size: 2vw;
     margin: 0;
 }
+
 
 .hide {
     display: none;
