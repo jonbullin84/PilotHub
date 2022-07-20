@@ -2,9 +2,12 @@
 
 var beerInfo = document.querySelector(".beer-info");
 
+
+// Pulls information of the nearest breweries which is linked to first API based off of latitude,longitude.
 function searchBeer(lat, long) {
-  // var beerCode = document.querySelector("#brewery_name").value;
+ // API for application or program
   console.log(lat, long);
+  //API URL that returns results based off latitude and longitude in batches of 3
   var getBeerInfo =
     "https://api.openbrewerydb.org/breweries?by_dist=" +
     lat +
@@ -19,18 +22,18 @@ function searchBeer(lat, long) {
     .then(function (response) {
       console.log(response);
     
-      
+      // Clears out card for the following search
       beerInfo.innerHTML = "";
-
+     // Iterates three times for brewery information
       for(var i = 0; i < response.length; i++){
 
       var brewery = document.createElement("div");
-
+//brewery name
       var breweryName = document.createElement("h2");
       breweryName.textContent = response[i].name;
       console.log(response[i].name);
       brewery.prepend(breweryName);
-
+//address
       var address = document.createElement("div");
       address.textContent = response[i].street;
       brewery.append(address);
@@ -40,11 +43,11 @@ function searchBeer(lat, long) {
       address2.textContent =
       response[i].city + ", " + response[i].state + " " + response[i].postal_code;
       brewery.append(address2);
-
+//Phone Number
       var phone = document.createElement("div");
       phone.textContent = response[i].phone;
       brewery.append(phone);
-
+//website
       var website = document.createElement("div");
       var link = document.createElement("a");
       link.setAttribute("href", response[i].website_url);
@@ -58,13 +61,11 @@ function searchBeer(lat, long) {
 
       beerInfo.append(brewery);
 
-    }      // beerCode.value = "lat, long";
+    }     
 })
+//error handling
     .catch(function (error) {
       console.log("error", error);
     });
 }
-//}
 
-//   document.addEventListener("click", searchBeer)
-// document.querySelector(".btn-search").addEventListener("click", searchBeer)

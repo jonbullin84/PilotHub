@@ -6726,7 +6726,7 @@ var iatacodes = [
   "SHE",
   "YNJ",
 ];
-
+//autocompletes the search with airport codes
 var airportInfo = document.querySelector(".airport-info");
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -6739,7 +6739,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var elems = document.querySelectorAll(".autocomplete");
   M.Autocomplete.init(elems, options);
 });
-
+//Uses API Key to authenticate the users
 var options = {
   method: "GET",
   headers: {
@@ -6747,7 +6747,7 @@ var options = {
     "X-RapidAPI-Host": "airport-info.p.rapidapi.com",
   },
 };
-
+// Application that searches for airport information
 function searchAirport(getAirportInfo) {
   
 console.log(getAirportInfo)
@@ -6760,30 +6760,31 @@ console.log(getAirportInfo)
     
       cardbox = document.querySelectorAll(".delete-hide") 
       console.log(cardbox)
-
       cardbox.forEach(function(card){
           card.classList.remove("hide")
+          //hides information until response is pulled
       })
-
+//calling searchBeer function
       searchBeer(response.latitude, response.longitude);
 
       airportInfo.innerHTML = "";
+      //airportName
       var airportName = document.createElement("h2");
       airportName.textContent = response.name;
       airportInfo.prepend(airportName);
-
+//address
       var address = document.createElement("div");
       address.textContent = response.street_number + " " + response.street;
       airportInfo.append(address)
-      
+ //address line 2     
       var address2 = document.createElement("div");
       address2.textContent = response.city + ", " + response.state + " " + response.postal_code;
       airportInfo.append(address2)
-
+//phone number
       var phone = document.createElement("div");
       phone.textContent = response.phone;
       airportInfo.append(phone)
-      
+ //website     
       var website = document.createElement("div");
       var link = document.createElement("a");
       link.setAttribute("href", response.website);
@@ -6794,6 +6795,7 @@ console.log(getAirportInfo)
 
       airportCode.value = "";
     })
+    //error response
     .catch(function (error) {
       console.log("error", error);
     });
@@ -6801,7 +6803,7 @@ console.log(getAirportInfo)
 }
 
 document.querySelector(".btn-search").addEventListener("click", getSearchValue);
-
+//local storage
 function getSearchValue(){
     var airportCode = document.querySelector("#airport_name");
 
@@ -6817,5 +6819,3 @@ var searchHistory = localStorage.getItem("history") || "https://airport-info.p.r
 
 searchAirport(searchHistory);
 
-// const beer = require('./beer.js');
-// beer.doSomething();
