@@ -6818,48 +6818,48 @@ function getSearchValue(){
     searchAirport(getAirportInfo)
 }
 
-// var searchHistory = localStorage.getItem("history") || "https://airport-info.p.rapidapi.com/airport?iata=ILM"
+var searchHistory = localStorage.getItem("history") || "https://airport-info.p.rapidapi.com/airport?iata=ILM"
 
-// searchAirport(searchHistory);
+searchAirport(searchHistory);
 
 
-document.getElementById("runSearch").addEventListener("click", function () {
-    var city = document.getElementById("city");
-    getAirportInfo(city);
-    document.getElementById("city");
-});
+// document.getElementById("runSearch").addEventListener("click", function () {
+//     var city = document.getElementById("city");
+//     getAirportInfo(city);
+//     document.getElementById("city");
+// });
 
-var getLocalStorage = function () {
-    // document.querySelector(".search-list").empty();
-    var storageData = JSON.parse(localStorage.getItem("previousSearches")) || [];
-      previousSearches = storageData.reverse();
+// var getLocalStorage = function () {
+//     // document.querySelector(".search-list").empty();
+//     var storageData = JSON.parse(localStorage.getItem("previousSearches")) || [];
+//       previousSearches = storageData.reverse();
 
-      console.log(previousSearches)
-      historyList = ""
-      for (const history of previousSearches) {
-        document.querySelector(".search-list").append(`<button type="submit" class="btn bg-light m-1 previous-city-searched">${history}</button>`)
-      }
-    };
+//       console.log(previousSearches)
+//       historyList = ""
+//       for (const history of previousSearches) {
+//         document.querySelector(".search-list").append(`<button type="submit" class="btn bg-light m-1 previous-city-searched">${history}</button>`)
+//       }
+//     };
 
-var saveLocalStorage = function (city) {
-    console.log(previousSearches)
-  var inArray = previousSearches.includes(city);
-  if (!inArray && city !== "") {
-    previousSearches.push(city);
-    if (previousSearches.length >=5){
-        console.log("Length greater than 5")
-        previousSearches.shift()
-        console.log(previousSearches)
-    }
-    localStorage.setItem("previousSearches", JSON.stringify(previousSearches));
-    getLocalStorage()
-  }
-};
+// var saveLocalStorage = function (city) {
+//     console.log(previousSearches)
+//   var inArray = previousSearches.includes(city);
+//   if (!inArray && city !== "") {
+//     previousSearches.push(city);
+//     if (previousSearches.length >=5){
+//         console.log("Length greater than 5")
+//         previousSearches.shift()
+//         console.log(previousSearches)
+//     }
+//     localStorage.setItem("previousSearches", JSON.stringify(previousSearches));
+//     getLocalStorage()
+//   }
+// };
 
-document.querySelector(".search-list").addEventListener("click", function (event) {
-  var cityAgain = event.target.innerHTML;
-  document.getElementById("#city").val(cityAgain);
-  getAirportInfo(cityAgain);
-});
+// document.querySelector(".search-list").addEventListener("click", function (event) {
+//   var cityAgain = event.target.innerHTML;
+//   document.getElementById("#city").val(cityAgain);
+//   getAirportInfo(cityAgain);
+// });
 
-getLocalStorage();
+// getLocalStorage();
