@@ -1,6 +1,6 @@
 
 
-var beerInfo = document.querySelector(".beer-info")
+var beerInfo = document.querySelector(".beer-info");
 
 function searchBeer(lat, long) {
   // var beerCode = document.querySelector("#brewery_name").value;
@@ -19,39 +19,51 @@ function searchBeer(lat, long) {
     .then(function (response) {
       console.log(response);
     
+      
       beerInfo.innerHTML = "";
+
+      for(var i = 0; i < response.length; i++){
+
+      var brewery = document.createElement("div");
+
       var breweryName = document.createElement("h2");
-      breweryName.textContent = response.name;
-      beerInfo.prepend(breweryName);
+      breweryName.textContent = response[i].name;
+      console.log(response[i].name);
+      brewery.prepend(breweryName);
 
-      var address = document.createElement("p");
-      address.textContent = response.street_number + " " + response.street;
-      beerInfo.append(address);
+      var address = document.createElement("div");
+      address.textContent = response[i].street;
+      brewery.append(address);
+      console.log(response[i].street);
 
-      var address2 = document.createElement("p");
+      var address2 = document.createElement("div");
       address2.textContent =
-        response.city + ", " + response.state + " " + response.postal_code;
-      beerInfo.append(address2);
+      response[i].city + ", " + response[i].state + " " + response[i].postal_code;
+      brewery.append(address2);
 
-      var phone = document.createElement("p");
-      phone.textContent = response.phone;
-      beerInfo.append(phone);
+      var phone = document.createElement("div");
+      phone.textContent = response[i].phone;
+      brewery.append(phone);
 
-      var website = document.createElement("p");
+      var website = document.createElement("div");
       var link = document.createElement("a");
-      link.setAttribute("href", response.website);
+      link.setAttribute("href", response[i].website_url);
       link.setAttribute("target", "_blank");
-      link.textContent = response.website;
+      link.textContent = response[i].website_url;
       website.append(link);
-      beerInfo.append(website);
+      brewery.append(website);
 
-      // beerCode.value = "lat, long";
-    })
+      var brk = document.createElement("hr")
+      brewery.append(brk);
+
+      beerInfo.append(brewery);
+
+    }      // beerCode.value = "lat, long";
+})
     .catch(function (error) {
       console.log("error", error);
     });
 }
-console.log("end of script");
 //}
 
 //   document.addEventListener("click", searchBeer)

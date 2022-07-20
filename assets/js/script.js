@@ -6748,12 +6748,9 @@ var options = {
   },
 };
 
-function searchAirport() {
-  var airportCode = document.querySelector("#airport_name");
-
-  var getAirportInfo =
-    "https://airport-info.p.rapidapi.com/airport?iata=" + airportCode.value;
-
+function searchAirport(getAirportInfo) {
+  
+console.log(getAirportInfo)
   fetch(getAirportInfo, options)
     .then(function (response) {
       return response.json();
@@ -6761,9 +6758,12 @@ function searchAirport() {
     .then(function (response) {
       console.log(response, response.latitude, response.longitude);
     
-      cardbox = document.getElementById("remove-hide") 
-      cardbox.classList.remove('hide');
+      cardbox = document.querySelectorAll(".delete-hide") 
+      console.log(cardbox)
 
+      cardbox.forEach(function(card){
+          card.classList.remove("hide")
+      })
 
       searchBeer(response.latitude, response.longitude);
 
@@ -6772,19 +6772,19 @@ function searchAirport() {
       airportName.textContent = response.name;
       airportInfo.prepend(airportName);
 
-      var address = document.createElement("p");
+      var address = document.createElement("div");
       address.textContent = response.street_number + " " + response.street;
       airportInfo.append(address)
       
-      var address2 = document.createElement("p");
+      var address2 = document.createElement("div");
       address2.textContent = response.city + ", " + response.state + " " + response.postal_code;
       airportInfo.append(address2)
 
-      var phone = document.createElement("p");
+      var phone = document.createElement("div");
       phone.textContent = response.phone;
       airportInfo.append(phone)
       
-      var website = document.createElement("p");
+      var website = document.createElement("div");
       var link = document.createElement("a");
       link.setAttribute("href", response.website);
       link.setAttribute("target", "_blank");
@@ -6800,7 +6800,22 @@ function searchAirport() {
   console.log(options);
 }
 
-document.querySelector(".btn-search").addEventListener("click", searchAirport);
+document.querySelector(".btn-search").addEventListener("click", getSearchValue);
+
+function getSearchValue(){
+    var airportCode = document.querySelector("#airport_name");
+
+    var getAirportInfo =
+      "https://airport-info.p.rapidapi.com/airport?iata=" + airportCode.value;
+  
+    localStorage.setItem("history", getAirportInfo);
+
+    searchAirport(getAirportInfo)
+}
+
+var searchHistory = localStorage.getItem("history") || "https://airport-info.p.rapidapi.com/airport?iata=ILM"
+
+searchAirport(searchHistory);
 
 // const beer = require('./beer.js');
 // beer.doSomething();
