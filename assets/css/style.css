@@ -2,13 +2,13 @@
     box-sizing: border-box;
     font-size: 1.7vw;
 }
-
+/* webpage styling */
 body {
     background-color: rgb(240, 239, 239);
     font-family: helvetica, arial, sans-serif;
     
 }
-
+/* jumbotron styling  */
 .jumbotron {
     position:relative;
     min-height: 65vh;
@@ -30,7 +30,7 @@ body {
     font-size: 3.5rem;
     
 }
- 
+ /* footer styling */
 footer {
 background-position: bottom;
 border-top: solid black 2px;
@@ -46,7 +46,7 @@ height: 75px;
     text-align: center;
     font-size: 0.75rem;
 }
-
+/* cards/hide */
 .delete-hide {
     display: flex;
     flex-direction: column;
